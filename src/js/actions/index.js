@@ -1,4 +1,4 @@
-import { IMAGE_SEARCH_DONE, IMAGE_SEARCH_LOAD_DONE, ADD_KEYWORD } from "../constants/action-types";
+import { IMAGE_SEARCH_DONE, IMAGE_SEARCH_LOAD_DONE, ADD_KEYWORD, IMAGE_FAVE_DONE, IMAGE_FAVE_REMOVED } from "../constants/action-types";
 
 const baseAPI = "http://api.giphy.com/v1/gifs/search";
 const apiKey = "tzUGkwP1sKo7qvYTSBKoxduhxr2Upb4Y";
@@ -32,4 +32,12 @@ export function fetchImageSearch(keyword, offset) {
 
 export function addKeyword(payload) {
 	return { type: ADD_KEYWORD, payload}
+};
+
+export function faveImage(payload) {
+	return { type: IMAGE_FAVE_DONE, payload}
+};
+
+export function removeFaveImage(payload) {
+	return { type: IMAGE_FAVE_REMOVED, payload}
 };

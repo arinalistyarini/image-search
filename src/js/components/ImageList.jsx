@@ -69,7 +69,7 @@ class ConnectedImageList extends Component {
 						el => (
 							el.data.map(li => {
 								return (
-									<ImageItem imgOriginalData={li.images.original_still} key={li.id} imgId={li.id} imgTitle={li.title} />
+									<ImageItem imgOriginalData={li.images.original_still} key={li.id} imgId={li.id} imgTitle={li.title} isImgLiked={false} />
 								);
 							})
 						)

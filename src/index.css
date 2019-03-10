@@ -48,7 +48,7 @@ header {
 	display: block;
  }
 
-.header-menu-wrapper .header-item.active a {
+.header-menu-wrapper .header-item a.active {
 	color: #676767;
 }
 
@@ -191,7 +191,7 @@ header {
     border: 0 solid transparent;
     margin: 0 auto 25px auto;
     display: block;
-    background-color: #676767;
+    background-color: #f05052;
     color: #ffffff;
     text-transform: uppercase;
     font-size: 18px;
@@ -201,7 +201,7 @@ header {
 
 .load-more:hover {
 	cursor: pointer;
-	background-color: #595959;
+	background-color: #cc3437;
 }
 
 .load-more:focus {

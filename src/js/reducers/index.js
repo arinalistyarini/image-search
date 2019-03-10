@@ -1,7 +1,8 @@
-import { IMAGE_SEARCH_DONE, IMAGE_SEARCH_LOAD_DONE, ADD_KEYWORD } from "../constants/action-types";
+import { IMAGE_SEARCH_DONE, IMAGE_SEARCH_LOAD_DONE, ADD_KEYWORD, IMAGE_FAVE_DONE, IMAGE_FAVE_REMOVED } from "../constants/action-types";
 
 const initialState = {
-	images: [],
+	images: [], // image from search
+	imagesFave: [], // liked images
 	imageKeyword: []
 };
 
@@ -28,6 +29,20 @@ function rootReducer(state = initialState, action) {
 		arr.push(action.payload);
 		return Object.assign({}, state, {
 			imageKeyword: arr
+		});
+	}
+
+	// liked images
+	if (action.type === IMAGE_FAVE_DONE) {
+		return Object.assign({}, state, {
+			imagesFave: state.imagesFave.concat(action.payload)
+		});
+	}
+
+	// remove liked image
+	if (action.type === IMAGE_FAVE_REMOVED) {
+		return Object.assign({}, state, {
+			imagesFave: state.imagesFave.filter(({ id }) => id !== action.payload.id)
 		});
 	}
 
