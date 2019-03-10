@@ -9,7 +9,6 @@ const App = () => (
 	<div className="wrapper-page">
 		<Header />
 		<div className="main" role="main">
-			{/* <Route exact path='/' component={SearchPage} /> */}
 			<Route path='/search' component={SearchPage} />
 			<Route path='/favourites' component={FavouritePage} />
 			<Redirect from="/" to="search" />

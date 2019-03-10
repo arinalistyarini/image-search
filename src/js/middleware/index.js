@@ -1,6 +1,6 @@
 import { IMAGE_FAVE_DONE, IMAGE_FAVE_REMOVED } from "../constants/action-types";
 
-
+// check if image already been faved
 export function hasBeenFavedMiddleware({ getState, dispatch }) {
   return function(next) {
     return function(action) {
@@ -25,6 +25,7 @@ export function hasBeenFavedMiddleware({ getState, dispatch }) {
   };
 }
 
+// check if fave image already been removed
 export function hasBeenRemovedMiddleware({ getState, dispatch }) {
 	return function(next) {
 	  return function(action) {

@@ -36,6 +36,7 @@ class ConnectedImageList extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
+		// determine show or hide load more button
 		if (prevProps.imageList !== this.props.imageList) {
 			const imageProps = this.props.imageList[0];
 			if (typeof imageProps !== 'undefined') {
@@ -43,17 +44,17 @@ class ConnectedImageList extends Component {
 				
 				if (imagePropsPagination.count < imagePropsPagination.total_count) {
 					this.setState({
-						isLoadMore: true
+						isLoadMore: true // show load more button
 					});
 
 					if (this.dataLength + this.dataOffset + 1 >= imagePropsPagination.total_count) {
 						this.setState({
-							isLoadMore: false
+							isLoadMore: false // hide load more button
 						});
 					}
 				} else {
 					this.setState({
-						isLoadMore: false
+						isLoadMore: false // hide load more button
 					});
 				}
 			}
@@ -75,7 +76,7 @@ class ConnectedImageList extends Component {
 						)
 					)}
 
-					{/* load more button */}
+					{/* fetch for load more button data */}
 					{this.props.imageList.map(
 						(el) => {
 							this.paginationData = el.pagination;
@@ -86,6 +87,8 @@ class ConnectedImageList extends Component {
 					)}
 
 				</ul>
+				
+				{/* load more button  */}
 				{ this.state.isLoadMore ? <button className="load-more" onClick={() => this.handleClickLoadMore(this.paginationData.total_count, this.paginationData.count, this.paginationData.offset)}>Load More</button> : null }
 			</div>
 		);

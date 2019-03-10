@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 
+// used for counting fave imaged in nav
 const mapStateToProps = state => {
 	return { 
 		imageList: state.imagesFave,
