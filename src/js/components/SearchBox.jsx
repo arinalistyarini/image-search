@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchImageSearch } from "../actions/index";
+import { addKeyword, fetchImageSearch } from "../actions/index";
 
 class ConnectedSearchBox extends Component {
 	constructor() {
@@ -31,6 +31,9 @@ class ConnectedSearchBox extends Component {
 
 		// fetch image from action
 		this.props.fetchImageSearch(keyword);
+
+		// add keyword to action (to be like 'global variable')
+		this.props.addKeyword(keyword);
 	}
 
 	render() {
@@ -44,6 +47,7 @@ class ConnectedSearchBox extends Component {
 						className="form-control"
 						value={keyword}
 						onChange={this.handleChange}
+						placeholder="Start searching for images!"
 					/>
 				</div>
 			</form>
@@ -51,6 +55,6 @@ class ConnectedSearchBox extends Component {
 	};
 }
 
-const SearchBox = connect(null, { fetchImageSearch })(ConnectedSearchBox);
+const SearchBox = connect(null, { addKeyword, fetchImageSearch })(ConnectedSearchBox);
 
 export default SearchBox;

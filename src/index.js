@@ -1,6 +1,8 @@
 // import React from 'react';
 // import ReactDOM from 'react-dom';
-// import './index.css';
+import "@babel/polyfill";
+import './index.css';
+import 'isomorphic-fetch';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 

@@ -1,4 +1,3 @@
-export const ADD_ARTICLE = "ADD_ARTICLE";
-export const DATA_LOADED = "DATA_LOADED";
-export const SEARCH_KEYWORD = "SEARCH_KEYWORD";
 export const IMAGE_SEARCH_DONE  = "IMAGE_SEARCH_DONE";
+export const IMAGE_SEARCH_LOAD_DONE  = "IMAGE_SEARCH_LOAD_DONE";
+export const ADD_KEYWORD  = "ADD_KEYWORD";
