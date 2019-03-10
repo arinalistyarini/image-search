@@ -7,7 +7,7 @@ import Footer from "./Footer";
 const App = () => (
 	<div className="wrapper-page">
 		<Header />
-		<div class="main" role="main">
+		<div className="main" role="main">
 			<div className="container">
 				<SearchBox />
 				<ImageList />
