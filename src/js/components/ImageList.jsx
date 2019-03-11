@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchImageSearch } from "../actions/index";
 import ImageItem from "./ImageItem";
+import { NUMBER_FETCH } from "../constants/variable";
 
 const mapStateToProps = state => {
 	return { 
 		imageList: state.images,
-		keyword: state.imageKeyword
+		keyword: state.imageKeyword,
+		isLoading: state.isLoading,
+		isNoData: state.isImagesNoData,
+		isAPIError: state.isAPIError
 	}
 };
 
@@ -30,7 +34,7 @@ class ConnectedImageList extends Component {
 	handleClickLoadMore(totalCount, count, offset) {
 		if (count < totalCount) {
 			const keywordImage = this.props.keyword[0];
-			const next = 25 + offset;
+			const next = NUMBER_FETCH + offset;
 			this.props.fetchImageSearch(keywordImage, next);
 		}
 	}
@@ -89,7 +93,16 @@ class ConnectedImageList extends Component {
 				</ul>
 				
 				{/* load more button  */}
-				{ this.state.isLoadMore ? <button className="load-more" onClick={() => this.handleClickLoadMore(this.paginationData.total_count, this.paginationData.count, this.paginationData.offset)}>Load More</button> : null }
+				{ this.state.isLoadMore && !this.props.isLoading ? <button className="load-more" onClick={() => this.handleClickLoadMore(this.paginationData.total_count, this.paginationData.count, this.paginationData.offset)}>Load More</button> : null }
+
+				{/* loading loader */}
+				{ this.props.isLoading ? <div className="loader"><div className="ball-scale-multiple"><div></div><div></div><div></div></div></div> : null }
+				
+				{/* notification: API error */}
+				{ this.props.isAPIError ? <p>An error occured. Sorry for the inconvenience.</p> : null }
+
+				{/* notification: image no data */}
+				{ this.props.isNoData ? <p>No images found.</p> : null }
 			</div>
 		);
 	};

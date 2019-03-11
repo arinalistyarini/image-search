@@ -21,7 +21,7 @@ class ConnectedImageFaveList extends Component {
 						)
 					)}
 				</ul>
-				{ !this.props.imageList.length ? <div class="form-group"><p>No image found in favourites.</p></div> : null }
+				{ !this.props.imageList.length ? <div className="form-group"><p>No image found in favourites.</p></div> : null }
 			</div>
 		);
 	};
